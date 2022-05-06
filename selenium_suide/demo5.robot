@@ -8,6 +8,7 @@ TC1
      Open Browser  https://www.salesforce.com/         browser=chrome
      Maximize Browser Window
      Set Selenium Implicit Wait    30s
+     Click Element   id=truste-consent-button
      Click Element    link=Try Free
      Input Text    name=UserFirstName    Divya
      Input Text    name=UserLastName   ABHI
