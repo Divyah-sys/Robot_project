@@ -9,4 +9,8 @@ phone num as 9609590495
 company size - 10-99
 click on sign up
 
+enter username as admin
+enter password as admin123
+click on login
+
 
