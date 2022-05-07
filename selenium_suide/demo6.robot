@@ -23,7 +23,9 @@ TC1
     Input Text    xpath=//textarea[@id='note']    hello
     Click Element    id=cancel
     Unselect Frame
-
+     Element Text Should Be    id=error_reply_to    please choose a patient
+     Element Text Should Be    id=error_reply_to    please${SPACE}${SPACE}choose a patient
+     Close Browser
 
 
 
