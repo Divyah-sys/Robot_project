@@ -16,5 +16,5 @@ TC1
      Click Element    id=input_go
      Element Text Should Be    xpath=//div[contains(text()='Access denied for user.')]    denied by user
      Close Window
-
+     Close Browser
 
