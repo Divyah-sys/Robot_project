@@ -11,11 +11,18 @@ TC1
      Go To    url=https://demo.openemr.io/b/openemr
      Input Text    id=authUser    admin
      Input Text    id=clearPass    pass
-     Select From List By Label       name=language
-     Click Element    id=login-button
-     Click Element    xpath://body/div[@id='mainBox']/div[@id='tabs_div']/div[1]/div[3]
-     Click Element    xpath://span[contains(text(),'Message Center')]
-     Click Element    xpath://body/div[@id='mainBox']/div[@id='mainFrames_div']/div[@id='framesDisplay']/div[2]/iframe[1]
+     Select From List By Value    name=languageChoice    18
+    Click Element    id=login-button
+    Switch Window    OpenEMR
+    Click Element    xpath=//span[text()='Message Center']
+    Select Frame    xpath=//iframe[@name='msg']
+    Click Element    xpath=//a[text()='Add New']
+    Select From List By Label    id=form_note_type      Pharmacy
+    Select From List By Label    id=form_message_status     New
+    Select From List By Label    id=users   Jarvis, Fred
+    Input Text    xpath=//textarea[@id='note']    hello
+    Click Element    id=cancel
+    Unselect Frame
 
 
 
