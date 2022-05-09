@@ -1,96 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.2 on win32)" generated="20220507 11:19:29.469" rpa="false" schemaversion="3">
-<suite id="s1" name="Demo2" source="C:\Users\admin\Desktop\robot project\DB.directory\demo2.robot">
-<test id="s1-t1" name="TC1" line="8">
-<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
-<arg>dbapiModuleName=pymysql</arg>
-<arg>dbName=dbfree_db</arg>
-<arg>dbUsername=dbfree_db</arg>
-<arg>dbPassword=12345678</arg>
-<arg>dbHost=db4free.net</arg>
-<arg>dbPort=3306</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20220507 11:19:30.772" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20220507 11:19:29.939" endtime="20220507 11:19:37.153"/>
+<robot generator="Robot 5.0 (Python 3.10.2 on win32)" generated="20220509 09:00:10.838" rpa="false" schemaversion="3">
+<suite id="s1" name="Appium" source="C:\Users\admin\Desktop\robot project\Appium.library\appium.robot">
+<test id="s1-t1" name="Tc1" line="5">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>remote_url=http://hub-cloud.browserstack.com/wd/hub</arg>
+<arg>browserstack.user=pavanraj_o4QGcU</arg>
+<arg>browserstack.key=fSpobzNiisxzBxtbzCPG</arg>
+<arg>app=bs://e818cb9f44be9409a5599f07c09fc6a1d639c598</arg>
+<arg>device=Google Pixel 3</arg>
+<arg>os_version=9.0</arg>
+<arg>project=lt6_project</arg>
+<arg>build=lt6_build</arg>
+<arg>name=khanacademy test</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220509 09:00:18.658" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20220509 09:00:18.642" endtime="20220509 09:00:18.974"/>
 </kw>
-<kw name="Row Count" library="DatabaseLibrary">
-<var>${row_count}</var>
-<arg>select * from Products</arg>
-<doc>Uses the input `selectStatement` to query the database and returns the number of rows from the query. Set
-optional input `sansTran` to True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:37.153" level="INFO">Executing : Row Count  |  select * from Products </msg>
-<msg timestamp="20220507 11:19:37.904" level="INFO">${row_count} = 81</msg>
-<status status="PASS" starttime="20220507 11:19:37.153" endtime="20220507 11:19:37.904"/>
+<msg timestamp="20220509 09:00:18.974" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20220509 09:00:18.990" level="FAIL">WebDriverException: Message: [BROWSERSTACK_APP_DELETED] The app build specified in the 'app' capability in your test script has been recently deleted. We delete an uploaded app after 30 days from the day of upload. Please upload the app using REST API or BrowserStack CLI and try again.
+</msg>
+<status status="FAIL" starttime="20220509 09:00:16.953" endtime="20220509 09:00:18.990"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${row_count}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220507 11:19:37.904" endtime="20220507 11:19:37.919"/>
+<kw name="Get Source" library="AppiumLibrary">
+<var>${app_source}</var>
+<doc>Returns the entire source of the current page.</doc>
+<status status="NOT RUN" starttime="20220509 09:00:18.990" endtime="20220509 09:00:18.990"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${row_count}</arg>
+<arg>${app_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220507 11:19:37.919" level="INFO">81</msg>
-<status status="PASS" starttime="20220507 11:19:37.919" endtime="20220507 11:19:37.919"/>
+<status status="NOT RUN" starttime="20220509 09:00:18.990" endtime="20220509 09:00:18.990"/>
 </kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<msg timestamp="20220507 11:19:37.919" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20220507 11:19:37.919" endtime="20220507 11:19:37.919"/>
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="NOT RUN" starttime="20220509 09:00:18.990" endtime="20220509 09:00:18.990"/>
 </kw>
-<status status="PASS" starttime="20220507 11:19:29.939" endtime="20220507 11:19:37.919"/>
+<status status="FAIL" starttime="20220509 09:00:16.953" endtime="20220509 09:00:18.990">WebDriverException: Message: [BROWSERSTACK_APP_DELETED] The app build specified in the 'app' capability in your test script has been recently deleted. We delete an uploaded app after 30 days from the day of upload. Please upload the app using REST API or BrowserStack CLI and try again.
+</status>
 </test>
-<test id="s1-t2" name="TC2" line="13">
-<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
-<arg>dbapiModuleName=pymysql</arg>
-<arg>dbName=dbfree_db</arg>
-<arg>dbUsername=dbfree_db</arg>
-<arg>dbPassword=12345678</arg>
-<arg>dbHost=db4free.net</arg>
-<arg>dbPort=3306</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20220507 11:19:37.935" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20220507 11:19:37.935" endtime="20220507 11:19:44.216"/>
-</kw>
-<kw name="Table Must Exist" library="DatabaseLibrary">
-<arg>Products</arg>
-<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
-explicit transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:44.216" level="INFO">Executing : Table Must Exist  |  Products </msg>
-<msg timestamp="20220507 11:19:44.216" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='Products' </msg>
-<status status="PASS" starttime="20220507 11:19:44.216" endtime="20220507 11:19:46.658"/>
-</kw>
-<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
-<arg>select * from Products</arg>
-<arg>81</arg>
-<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
-will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
-transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:46.658" level="INFO">Executing : Row Count Is Equal To X  |  select * from Products  |  81 </msg>
-<msg timestamp="20220507 11:19:46.658" level="INFO">Executing : Row Count  |  select * from Products </msg>
-<status status="PASS" starttime="20220507 11:19:46.658" endtime="20220507 11:19:48.721"/>
-</kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<msg timestamp="20220507 11:19:48.721" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20220507 11:19:48.721" endtime="20220507 11:19:48.721"/>
-</kw>
-<status status="PASS" starttime="20220507 11:19:37.919" endtime="20220507 11:19:48.721"/>
-</test>
-<status status="PASS" starttime="20220507 11:19:29.506" endtime="20220507 11:19:48.737"/>
+<status status="FAIL" starttime="20220509 09:00:10.870" endtime="20220509 09:00:19.006"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Demo2">Demo2</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Appium">Appium</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20220509 09:00:18.974" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
 </errors>
 </robot>
